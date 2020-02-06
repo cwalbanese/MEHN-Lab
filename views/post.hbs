@@ -11,4 +11,7 @@
     <li>{{this}}</li>
     {{/each}}
 </ul>
+<form action="/posts/{{this._id}}/delete" method="post">
+    <input type="submit" value="Delete question">
+</form>
 {{/each}}

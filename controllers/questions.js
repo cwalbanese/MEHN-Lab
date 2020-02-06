@@ -39,4 +39,10 @@ router.post('/:id', (req, res) => {
   });
 });
 
+router.post('/:id/delete', (req, res) => {
+  Question.deleteOne({ _id: req.params.id }).then(deleted => {
+    res.redirect('/posts');
+  });
+});
+
 module.exports = router;
