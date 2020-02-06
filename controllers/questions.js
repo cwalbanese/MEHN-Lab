@@ -28,4 +28,15 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/:id', (req, res) => {
+  Question.findOneAndUpdate(
+    {
+      _id: req.params.id
+    },
+    { $push: { answers: req.body.answer } }
+  ).then(created => {
+    res.redirect(`/posts/${req.params.id}`);
+  });
+});
+
 module.exports = router;

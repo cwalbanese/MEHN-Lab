@@ -27,11 +27,17 @@ const manyQuestions = [
   }
 ];
 
-Question.insertMany(manyQuestions, (error, question) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(question);
-  }
-  db.close();
-});
+Question.deleteMany({})
+  .then(() => {
+    console.log('deleted all questions');
+  })
+  .then(() => {
+    Question.insertMany(manyQuestions, (error, question) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(question);
+      }
+      db.close();
+    });
+  });
