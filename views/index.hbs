@@ -1,17 +1,13 @@
-<ul class="posts">
-    <form action="/posts" method="post" accept-charset="utf-8">
-        <label for="ask">Ask a question</label>
-        <label for="title">Question:
-            <input type="text" name="title" id="title">
-        </label>
-        <label for="description">Description:
-            <input type="text" name="description" id="description">
-        </label>
-        <input type="submit" value="Submit question" name="question[question]">
-    </form>
+<form class="ask" action="/posts" method="post" accept-charset="utf-8">
+    <label for="ask">Ask a question</label>
+
+    <input class='title-input' placeholder="What is your question?" type="text" name="title" id="title">
+    <textarea placeholder="Tell us more about your problem." class="description-input" type="text" name="description"
+        id="description"></textarea>
+    <input class='submit-question' type="submit" value="Submit question">
+</form>
+<div class="posts">
     {{#each questions}}
-    <li>
-        <a href="posts/{{this._id}}">{{this.title}}</a>
-    </li>
+    <a class="post-list-item" href="posts/{{this._id}}">{{this.title}}</a class="post-list-item">
     {{/each}}
-</ul>
+</div>

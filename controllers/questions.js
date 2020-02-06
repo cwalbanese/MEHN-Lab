@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   Question.create({
-    title: req.body.title,
+    title: req.body.title || 'No title',
     description: req.body.description
   }).then(created => {
     res.redirect('/posts');

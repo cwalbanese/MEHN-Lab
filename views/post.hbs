@@ -1,17 +1,22 @@
 {{#each question}}
-<h1>{{this.title}}</h1>
-<p>{{this.description}}</p>
+<div class="post-content">
+    <h1>{{this.title}}</h1>
+    <p>{{this.description}}</p>
+</div>
 <form action="/posts/{{this._id}}" method="post" accept-charset="utf-8">
-    <label for="add">Add an answer</label>
+    <label for="title">Submit an answer</label>
     <input type="text" name="answer" id="answer">
     <input type="submit" value="Submit answer">
 </form>
-<ul class="answers">
-    {{#each this.answers}}
-    <li>{{this}}</li>
+<div class="comments">
+    <h2>Comments</h2>
+    <ul class="answers">
+        {{#each this.answers}}
+        <li class='answer'>{{this}}</li>
+        {{/each}}
+    </ul>
+    <form action="/posts/{{this._id}}/delete" method="post">
+        <input class="delete" type="submit" value="Delete question">
+    </form>
     {{/each}}
-</ul>
-<form action="/posts/{{this._id}}/delete" method="post">
-    <input type="submit" value="Delete question">
-</form>
-{{/each}}
+</div>
