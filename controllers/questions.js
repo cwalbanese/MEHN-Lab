@@ -11,4 +11,12 @@ router.get('/', (req, res) => {
     .catch(console.error);
 });
 
+router.get('/:id', (req, res) => {
+  Question.find({ _id: req.params.id })
+    .then(question => {
+      res.render('post', { question });
+    })
+    .catch(console.error);
+});
+
 module.exports = router;
