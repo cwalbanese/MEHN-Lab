@@ -19,4 +19,13 @@ router.get('/:id', (req, res) => {
     .catch(console.error);
 });
 
+router.post('/', (req, res) => {
+  Question.create({
+    title: req.body.title,
+    description: req.body.description
+  }).then(created => {
+    res.redirect('/posts');
+  });
+});
+
 module.exports = router;

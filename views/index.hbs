@@ -1,4 +1,14 @@
 <ul class="posts">
+    <form action="/posts" method="post" accept-charset="utf-8">
+        <label for="ask">Ask a question</label>
+        <label for="title">Question:
+            <input type="text" name="title" id="title">
+        </label>
+        <label for="description">Description:
+            <input type="text" name="description" id="description">
+        </label>
+        <input type="submit" value="Submit question" name="question[question]">
+    </form>
     {{#each questions}}
     <li>
         <a href="posts/{{this._id}}">{{this.title}}</a>

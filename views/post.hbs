@@ -1,7 +1,7 @@
 {{#each question}}
 <h1>{{this.title}}</h1>
 <p>{{this.description}}</p>
-<form action="/posts" method="post" accept-charset="utf-8">
+<form action="/posts/{{this._id}}" method="post" accept-charset="utf-8">
     <label for="add">Add an answer</label>
     <input type="text" name="answer" id="answer">
     <input type="submit" value="Submit answer" name="answer[answer]">
